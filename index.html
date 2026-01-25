@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Thinh Nguyễn ♡ Nhung Suzy • Mẫu Thiệp Lãng Mạn</title>
+
+  <!-- Fonts gần giống mẫu (có thể đổi nếu bạn muốn đúng 100%) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-card">
+        <div class="hero-card-body">
+          <div class="hero-couple">
+            <div class="hero-groom">
+              <img src="assets/groom.jpg" alt="Chú rể Thinh Nguyễn" loading="lazy"/>
+            </div>
+            <div class="hero-names">
+              <div class="save-the-date">Save The Date</div>
+              <h1 class="bride-groom-names">
+                <span class="groom-name">Thinh Nguyễn</span>
+                <span class="ampersand">❤️</span>
+                <span class="bride-name">Nhung Suzy</span>
+              </h1>
+              <div class="wedding-date">Chủ Nhật 08 Tháng 03 2026</div>
+            </div>
+            <div class="hero-bride">
+              <img src="assets/bride.jpg" alt="Cô dâu Nhung Suzy" loading="lazy"/>
+            </div>
+          </div>
+          <div class="hero-venue">Nhà Trai</div>
+          <div class="hero-address">Bùi Hạ Yết Kiêu Hải Phòng</div>
+          <div class="hero-venue" style="margin-top: 14px;">Nhà Gái</div>
+          <div class="hero-address">Phường Minh Bắc Ninh</div>
+
+          <div class="hero-actions hero-actions--inside">
+            <a class="btn btn-outline btn-hero" href="tel:08xxxxxxxxx">Liên hệ</a>
+            <a class="btn btn-outline btn-hero" href="https://www.google.com/maps" target="_blank" rel="noreferrer">Bản đồ</a>
+            <a class="btn btn-outline btn-hero" href="#gift">Gửi quà</a>
+          </div>
+        </div>
+      </div>
+      <a class="scroll-indicator" href="#intro">Kéo xuống</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section section-tint" id="intro">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Giới thiệu</div>
+          <h2 class="section-title">Cặp đôi</h2>
+        </div>
+
+        <div class="couple-intro">
+          <article class="person-card">
+            <div class="person-image">
+              <img src="assets/groom.jpg" alt="Chú rể Thinh Nguyễn" loading="lazy"/>
+            </div>
+            <div class="person-info">
+              <div class="person-label">Chú rể</div>
+              <div class="person-name">Thinh Nguyễn</div>
+            </div>
+          </article>
+
+          <article class="person-card">
+            <div class="person-image">
+              <img src="assets/bride.jpg" alt="Cô dâu Nhung Suzy" class="person-image-bride" loading="lazy"/>
+            </div>
+            <div class="person-info">
+              <div class="person-label">Cô dâu</div>
+              <div class="person-name">Nhung Suzy</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="love-story">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Câu chuyện tình yêu</div>
+          <h2 class="section-title">Love Story</h2>
+        </div>
+
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="album">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Album ảnh</div>
+          <h2 class="section-title">Khoảnh khắc</h2>
+        </div>
+
+        <div class="photo-gallery" id="photoGallery"></div>
+
+        <div class="text-center" style="margin-top: 28px;">
+          <button class="btn btn-primary" id="loadMoreBtn" type="button">Xem thêm ảnh</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="events">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Trân trọng kính mời</div>
+          <h2 class="section-title">Tham dự lễ cưới</h2>
+        </div>
+
+        <div class="events-list" id="eventsList"></div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="countdown">
+      <div class="container">
+        <div class="countdown-header">
+          <div class="countdown-subtitle">Cùng đếm ngược thời gian</div>
+          <div class="countdown-title">Save The Date</div>
+        </div>
+
+        <div class="countdown-timer">
+          <div class="countdown-item">
+            <div class="countdown-number" id="days">00</div>
+            <div class="countdown-label">Ngày</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="hours">00</div>
+            <div class="countdown-label">Giờ</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="minutes">00</div>
+            <div class="countdown-label">Phút</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="seconds">00</div>
+            <div class="countdown-label">Giây</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="wishes">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Gửi lời chúc</div>
+          <h2 class="section-title">Lời chúc đến cặp đôi</h2>
+        </div>
+
+        <div class="wishes-container">
+          <div class="wishes-list" id="wishesList"></div>
+
+          <form class="wish-form" id="wishForm">
+            <div class="form-title">Gửi lời chúc</div>
+            <div class="form-note">Lời chúc của bạn sẽ được hiển thị công khai trên thiệp.</div>
+
+            <div class="form-group">
+              <label for="wishName">Tên</label>
+              <input id="wishName" name="name" type="text" placeholder="Nhập tên của bạn" required>
+            </div>
+
+            <div class="form-group">
+              <label for="wishEmail">Email (không bắt buộc)</label>
+              <input id="wishEmail" name="email" type="email" placeholder="example@email.com">
+            </div>
+
+            <div class="form-group">
+              <label for="wishMessage">Lời chúc</label>
+              <textarea id="wishMessage" name="message" placeholder="Gửi lời chúc đến cặp đôi" required></textarea>
+            </div>
+
+            <div class="form-checkbox">
+              <input id="rememberMe" type="checkbox" checked>
+              <label for="rememberMe">Lưu thông tin cho lần sau</label>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Gửi lời chúc</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="gift">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Gửi quà</div>
+          <h2 class="section-title">Mừng cưới</h2>
+        </div>
+
+        <div class="gift-cards">
+          <div class="gift-card">
+            <img src="assets/qr-groom.png" alt="QR Chú rể" loading="lazy">
+            <div class="gift-label">Chú rể</div>
+          </div>
+          <div class="gift-card">
+            <img src="assets/qr-bride.png" alt="QR Cô dâu" loading="lazy">
+            <div class="gift-label">Cô dâu</div>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 26px;">
+          <button class="btn btn-secondary" id="shareBtn" type="button">Chia sẻ thiệp</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer">
+    <div class="container">
+      <h3 class="footer-title script-font">Thank you!</h3>
+      <p class="footer-text">
+        Sự xuất hiện của bạn sẽ làm cho ngày cưới của chúng tôi trở nên đặc biệt hơn bao giờ hết.
+        Chúng tôi rất mong được đón tiếp bạn trong ngày trọng đại, để cùng nhau chứng kiến và sẻ chia niềm hạnh phúc trọn vẹn này.
+      </p>
+    </div>
+  </footer>
+
+  <button class="music-btn" id="musicBtn" type="button" aria-label="Bật/tắt nhạc" aria-pressed="false">
+    <span class="music-icon">♪</span>
+  </button>
+  <audio id="bgm" src="assets/music.mp3" loop preload="auto"></audio>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Xem ảnh">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Đóng">✕</button>
+    <img id="lightboxImg" alt="Ảnh xem lớn"/>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
