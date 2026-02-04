@@ -374,10 +374,28 @@
     musicBtn?.setAttribute("aria-pressed", on ? "true" : "false");
   }
 
+  // Auto-play on page load
+  async function initMusic(){
+    if(!bgm) return;
+    try{
+      // Set volume to 0.3 for better user experience
+      bgm.volume = 0.3;
+      await bgm.play();
+      setState(true);
+    }catch(_e){
+      // Auto-play was blocked, wait for user interaction
+      console.log('Auto-play blocked, waiting for user interaction');
+    }
+  }
+
+  // Try to play music on page load
+  initMusic();
+
   musicBtn?.addEventListener("click", async ()=>{
     if(!bgm) return;
     try{
       if(!playing){
+        bgm.volume = 0.3;
         await bgm.play();
         setState(true);
       }else{

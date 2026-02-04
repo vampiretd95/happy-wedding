@@ -1,11 +1,13 @@
 .svg-defs{position:absolute;width:0;height:0;overflow:hidden}
 /* Custom build inspired by WEB招待状 layout (original design not copied) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
 :root{
   --bg:#fff5f8;
   --soft:#ffeef5;
   --text:#1a1a1a;
-  --muted:rgba(26,26,26,.6);
-  --muted2:rgba(26,26,26,.8);
+  --muted:rgba(26,26,26,.75);
+  --muted2:rgba(26,26,26,.9);
   --accent:#d6b18a;
   --card:#ffffff;
   --shadow:0 18px 34px rgba(0,0,0,.10);
@@ -14,9 +16,11 @@
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{
-  font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  font-family:"Quicksand",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;
   background:var(--bg);
   color:var(--text);
+  font-weight:400;
+  line-height:1.6;
 }
 
 a{color:inherit}
@@ -27,26 +31,31 @@ a{color:inherit}
 .section-soft{background:var(--soft)}
 .kicker{
   text-align:center;
-  font-family:"Cormorant Garamond",serif;
-  letter-spacing:.22em;
-  font-size:12px;
+  font-family:"Quicksand",sans-serif;
+  letter-spacing:.15em;
+  font-size:11px;
   color:var(--muted);
+  font-weight:600;
+  text-transform:uppercase;
 }
 .title{
   margin:10px 0 0;
   text-align:center;
-  font-family:"Cormorant Garamond",serif;
-  letter-spacing:.06em;
-  font-size:34px;
+  font-family:"Playfair Display",serif;
+  letter-spacing:.02em;
+  font-size:36px;
+  font-weight:400;
+  color:var(--text);
 }
 .desc{
   max-width:640px;
   margin:14px auto 0;
   text-align:center;
-  color:rgba(44,44,44,.66);
+  color:var(--muted);
   line-height:1.85;
+  font-size:15px;
 }
-.desc-strong{font-weight:600;color:rgba(44,44,44,.78)}
+.desc-strong{font-weight:600;color:var(--muted2)}
 
 /* NAV */
 .nav{position:fixed;top:14px;right:14px;z-index:60}
@@ -61,17 +70,17 @@ a{color:inherit}
 .nav-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:55}
 .nav-panel{
   position:fixed;top:70px;right:14px;width:240px;
-  background:#fff;border-radius:18px;box-shadow:0 18px 40px rgba(0,0,0,.18);
+  background:#fff5f8;border-radius:18px;box-shadow:0 18px 40px rgba(0,0,0,.18);
   padding:10px;z-index:60
 }
 .nav-link{
   display:block;padding:12px 14px;border-radius:12px;text-decoration:none;
-  color:rgba(44,44,44,.8)
+  color:var(--muted2)
 }
-.nav-link:hover{background:rgba(0,0,0,.04)}
+.nav-link:hover{background:rgba(26,26,26,.08)}
 
 /* HERO */
-.hero{background:#fff}
+.hero{background:#fff5f8}
 .hero-media{
   position:relative;
   height:56vh;
@@ -79,7 +88,7 @@ a{color:inherit}
   padding:0 16px;
   display:flex;
   align-items:flex-end;
-  background:#fff;
+  background:#fff5f8;
 }
 .hero-img-wrap{
   position:relative;
@@ -96,21 +105,39 @@ a{color:inherit}
 .hero-text{text-align:center;padding:22px 16px 40px}
 .hero-script{
   font-family:"Great Vibes",cursive;
-  font-size:22px;
-  color:#b8b0a6;
+  font-size:24px;
+  color:var(--text);
+  margin-bottom:8px;
+  font-weight:400;
+}
+.hero-couple{
+  font-family:"Playfair Display",serif;
+  font-size:32px;
+  font-weight:400;
+  color:var(--text);
+  letter-spacing:.02em;
+  margin-bottom:16px;
+}
+.hero-date{
+  font-family:"Quicksand",sans-serif;
+  font-size:14px;
+  font-weight:500;
+  color:var(--muted);
+  letter-spacing:.08em;
+  text-transform:uppercase;
 }
 .hero-names{
   margin-top:10px;
-  font-family:"Cormorant Garamond",serif;
+  font-family:"Quicksand",sans-serif;
   text-transform:uppercase;
-  letter-spacing:.14em;
-  font-size:24px;
+  letter-spacing:.12em;
+  font-size:20px;
   color:var(--muted2);
+  font-weight:600;
 }
-.hero-names .amp{margin:0 10px;color:#c9c2b8}
-.hero-date{margin-top:10px;font-size:14px;letter-spacing:.18em;color:#b8b0a6}
-.hero-save{margin-top:12px;font-size:12px;letter-spacing:.22em;color:#b8b0a6}
-.hero-down{display:inline-block;margin-top:14px;font-size:22px;color:#b8b0a6;text-decoration:none}
+.hero-names .amp{margin:0 10px;color:var(--accent)}
+.hero-save{margin-top:12px;font-size:12px;letter-spacing:.18em;color:var(--muted);font-family:"Quicksand",sans-serif;font-weight:500;text-transform:uppercase}
+.hero-down{display:inline-block;margin-top:14px;font-size:22px;color:var(--muted);text-decoration:none}
 .hero-actions{
   margin-top:18px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap
 }
@@ -121,13 +148,15 @@ a{color:inherit}
   padding:10px 16px;
   font-size:14px;
   border:1px solid transparent;
-  background:transparent;
   cursor:pointer;
   text-decoration:none;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:8px;
+  font-family:"Quicksand",sans-serif;
+  font-weight:500;
+  letter-spacing:.02em;
+  transition:all 0.2s ease;
 }
 .btn-outline{border-color:rgba(214,177,138,.85);color:rgba(214,177,138,1)}
 .btn-solid{background:rgba(214,177,138,1);color:#fff}
@@ -150,17 +179,20 @@ a{color:inherit}
   text-align:center;
 }
 .cd-val{
-  font-family:"Cormorant Garamond",serif;
-  font-size:36px;
-  letter-spacing:.06em;
-  color:rgba(44,44,44,.78);
+  font-family:"Playfair Display",serif;
+  font-size:38px;
+  letter-spacing:.02em;
+  color:var(--text);
+  font-weight:400;
 }
 .cd-lbl{
   margin-top:2px;
-  font-size:12px;
-  letter-spacing:.14em;
-  color:rgba(44,44,44,.52);
-  text-transform:lowercase;
+  font-size:11px;
+  letter-spacing:.12em;
+  color:var(--muted);
+  text-transform:uppercase;
+  font-family:"Quicksand",sans-serif;
+  font-weight:600;
 }
 
 /* STORY */
@@ -171,10 +203,10 @@ a{color:inherit}
   box-shadow:var(--shadow);
 }
 .story-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.story-meta{margin-top:14px;font-size:12px;letter-spacing:.18em;color:var(--muted)}
-.story-title{margin-top:6px;font-family:"Great Vibes",cursive;font-size:30px;color:rgba(44,44,44,.76)}
-.story-text{margin-top:8px;color:rgba(44,44,44,.70);line-height:1.8}
-.story-sep{width:2px;height:32px;background:rgba(44,44,44,.18);border-radius:2px}
+.story-meta{margin-top:14px;font-size:11px;letter-spacing:.15em;color:var(--muted);font-family:"Quicksand",sans-serif;font-weight:600;text-transform:uppercase}
+.story-title{margin-top:6px;font-family:"Playfair Display",serif;font-size:28px;color:var(--text);font-weight:400;letter-spacing:.02em;line-height:1.3}
+.story-text{margin-top:8px;color:var(--muted2);line-height:1.8;font-family:"Quicksand",sans-serif;font-size:15px}
+.story-sep{width:2px;height:32px;background:var(--accent);border-radius:2px;opacity:.6}
 
 /* ALBUM */
 .album-slider{margin-top:28px;position:relative}
@@ -317,30 +349,37 @@ textarea.input{resize:vertical}
 }
 .wedding-family{
   margin:0 0 16px;
-  font-size:24px;
-  font-family:"Cormorant Garamond",serif;
-  letter-spacing:.06em;
+  font-size:22px;
+  font-family:"Playfair Display",serif;
+  letter-spacing:.02em;
   text-align:center;
   color:var(--accent);
+  font-weight:400;
 }
 .wedding-parents{
   margin-bottom:20px;
   padding-bottom:16px;
-  border-bottom:1px solid rgba(0,0,0,.06);
+  border-bottom:1px solid rgba(26,26,26,.08);
   font-size:14px;
   line-height:1.6;
+  font-family:"Quicksand",sans-serif;
+  color:var(--muted2);
 }
 .event-time,
 .event-location{
   margin-bottom:16px;
   font-size:14px;
   line-height:1.6;
+  font-family:"Quicksand",sans-serif;
+  color:var(--muted2);
 }
 .event-time strong,
 .event-location strong{
   display:block;
   margin-bottom:4px;
-  color:var(--muted2);
+  color:var(--text);
+  font-weight:600;
+  font-family:"Quicksand",sans-serif;
 }
 .map-link{
   display:inline-flex;
@@ -382,7 +421,7 @@ textarea.input{resize:vertical}
 .wishes-list{margin-top:16px}
 .wish-item{
   padding:12px 0;
-  border-bottom:1px solid rgba(0,0,0,.06);
+  border-bottom:1px solid rgba(26,26,26,.08);
 }
 .wish-item:last-child{border-bottom:none}
 .wish-author{
@@ -390,28 +429,37 @@ textarea.input{resize:vertical}
   color:var(--muted2);
   margin-bottom:4px;
   font-size:14px;
+  font-family:"Quicksand",sans-serif;
 }
 .wish-time{
-  font-size:12px;
+  font-size:11px;
   color:var(--muted);
   margin-bottom:8px;
+  font-family:"Quicksand",sans-serif;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:.05em;
 }
 .wish-text{
   line-height:1.6;
   color:var(--text);
   font-size:14px;
+  font-family:"Quicksand",sans-serif;
 }
 .wishes-form h3{
   margin:0 0 8px;
   font-size:20px;
-  font-family:"Cormorant Garamond",serif;
-  letter-spacing:.06em;
+  font-family:"Playfair Display",serif;
+  letter-spacing:.02em;
+  color:var(--text);
+  font-weight:400;
 }
 .form-description{
   font-size:13px;
   color:var(--muted);
   margin-bottom:20px;
   line-height:1.5;
+  font-family:"Quicksand",sans-serif;
 }
 .form-group{
   margin-bottom:16px;
@@ -422,7 +470,8 @@ textarea.input{resize:vertical}
   font-size:13px;
   letter-spacing:.05em;
   color:var(--muted2);
-  font-weight:500;
+  font-weight:600;
+  font-family:"Quicksand",sans-serif;
 }
 .form-group input,
 .form-group textarea{
@@ -431,7 +480,7 @@ textarea.input{resize:vertical}
   border:1px solid rgba(26,26,26,.15);
   border-radius:12px;
   font-size:14px;
-  font-family:inherit;
+  font-family:"Quicksand",sans-serif;
   background:#fff;
   transition:border-color 0.2s;
   color:var(--text);
@@ -457,6 +506,7 @@ textarea.input{resize:vertical}
   font-size:13px;
   color:var(--text);
   font-weight:400;
+  font-family:"Quicksand",sans-serif;
 }
 
 /* RESPONSIVE */
@@ -474,7 +524,7 @@ textarea.input{resize:vertical}
 @media (max-width:480px){
   .hero-media{height:52vh;padding:0 12px;}
   .hero-img-wrap{max-width:100%;}
-  .title{font-size:30px}
+  .title{font-size:28px}
   .gift-grid{grid-template-columns:1fr;gap:16px}
   .gift-card{padding:16px}
   .gift-frame{max-width:240px}
@@ -484,6 +534,9 @@ textarea.input{resize:vertical}
   .wishes-form h3{font-size:18px}
   .form-group{margin-bottom:14px}
   .wedding-card{padding:18px}
+  .story-title{font-size:24px}
+  .hero-couple{font-size:28px}
+  .wedding-family{font-size:20px}
 }
 
 /* Optional subtle separation */
