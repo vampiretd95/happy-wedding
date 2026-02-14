@@ -213,23 +213,41 @@
     if(prevBtn){
       prevBtn.addEventListener("click", (e) => {
         e.preventDefault();
+        e.stopPropagation();
         console.log('prevBtn clicked', { current });
+        prev();
+      });
+      // Add touch events for mobile
+      prevBtn.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('prevBtn touched', { current });
         prev();
       });
       // Force style to ensure clickable
       prevBtn.style.pointerEvents = 'auto';
       prevBtn.style.zIndex = '20';
+      prevBtn.style.touchAction = 'manipulation';
     } else {
       console.error('prevBtn not found');
     }
     if(nextBtn){
       nextBtn.addEventListener("click", (e) => {
         e.preventDefault();
+        e.stopPropagation();
         console.log('nextBtn clicked', { current });
+        next();
+      });
+      // Add touch events for mobile
+      nextBtn.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('nextBtn touched', { current });
         next();
       });
       nextBtn.style.pointerEvents = 'auto';
       nextBtn.style.zIndex = '20';
+      nextBtn.style.touchAction = 'manipulation';
     } else {
       console.error('nextBtn not found');
     }

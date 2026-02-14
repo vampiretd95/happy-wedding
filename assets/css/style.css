@@ -539,6 +539,21 @@ textarea.input{resize:vertical}
   .story-title{font-size:24px}
   .hero-couple{font-size:28px}
   .wedding-family{font-size:20px}
+  .album-stage{padding:0 40px}
+  .album-main{aspect-ratio:3 / 4}
+  .album-nav{
+    width:44px;
+    height:44px;
+    font-size:24px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .album-nav:active{
+    transform: translateY(-50%) scale(0.95);
+    background:var(--soft);
+  }
 }
 
 /* Optional subtle separation */
@@ -549,9 +564,4 @@ textarea.input{resize:vertical}
   clip-path: url(#heroClip);
   -webkit-clip-path: url(#heroClip);
   border-radius: 0; /* clip handles curve */
-}
-
-@media (max-width:480px){
-  .album-stage{padding:0 40px}
-  .album-main{aspect-ratio:3 / 4}
 }
