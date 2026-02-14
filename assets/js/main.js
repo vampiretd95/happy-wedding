@@ -180,43 +180,59 @@
     console.log('album elements', { slider, $cur, thumbs, prevBtn, nextBtn });
 
     if(prevBtn){
+      // iOS needs both touchstart and touchend for proper handling
+      prevBtn.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('prevBtn touched', { current });
+        prev();
+      }, { passive: false });
+      
+      prevBtn.addEventListener("touchend", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      }, { passive: false });
+      
       prevBtn.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
         console.log('prevBtn clicked', { current });
         prev();
       });
-      // Add touch events for mobile
-      prevBtn.addEventListener("touchstart", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        console.log('prevBtn touched', { current });
-        prev();
-      });
+      
       // Force style to ensure clickable
       prevBtn.style.pointerEvents = 'auto';
       prevBtn.style.zIndex = '20';
       prevBtn.style.touchAction = 'manipulation';
+      prevBtn.style.webkitTapHighlightColor = 'transparent';
     } else {
       console.error('prevBtn not found');
     }
     if(nextBtn){
+      // iOS needs both touchstart and touchend for proper handling
+      nextBtn.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('nextBtn touched', { current });
+        next();
+      }, { passive: false });
+      
+      nextBtn.addEventListener("touchend", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      }, { passive: false });
+      
       nextBtn.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
         console.log('nextBtn clicked', { current });
         next();
       });
-      // Add touch events for mobile
-      nextBtn.addEventListener("touchstart", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        console.log('nextBtn touched', { current });
-        next();
-      });
+      
       nextBtn.style.pointerEvents = 'auto';
       nextBtn.style.zIndex = '20';
       nextBtn.style.touchAction = 'manipulation';
+      nextBtn.style.webkitTapHighlightColor = 'transparent';
     } else {
       console.error('nextBtn not found');
     }

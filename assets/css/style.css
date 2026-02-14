@@ -580,7 +580,41 @@ textarea.input{resize:vertical}
   }
 }
 
-/* Optional subtle separation */
+/* iOS specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .album-nav {
+    appearance: none;
+    -webkit-appearance: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+  }
+  
+  .album-slider {
+    -webkit-touch-callout: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    -webkit-touch-callout: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-overflow-scrolling: auto;
+  }
+}
+
+/* Prevent zoom on iOS */
+input, textarea, select {
+  font-size: 16px !important;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+}
 .hero-img-wrap{filter: drop-shadow(0 18px 34px rgba(0,0,0,.10));}
 
 /* Favori-like curve using SVG clip-path */
