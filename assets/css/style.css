@@ -219,7 +219,9 @@ a{color:inherit}
 /* ALBUM */
 .album-slider{
   margin-top:28px;position:relative;
-  touch-action: pan-y pinch-zoom;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
 }
 .album-stage{
   position:relative;
@@ -266,10 +268,22 @@ a{color:inherit}
   display:flex;
   align-items:center;
   justify-content:center;
+  transition:all 0.2s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.album-nav:hover{
+  background:rgba(255,255,255,1);
+  transform:translateY(-50%) scale(1.05);
+}
+.album-nav:active{
+  transform:translateY(-50%) scale(0.95);
+  background:var(--soft);
 }
 .album-prev-btn{left:8px}
 .album-next-btn{right:8px}
-.album-nav:hover{background:#fff}
 
 .album-thumbs{
   margin-top:18px;

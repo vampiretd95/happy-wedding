@@ -165,11 +165,11 @@
 
   function prev(){ 
     console.log('prev clicked, current before:', current);
-    debounceNavigation(() => setCurrent(current - 1, { scrollThumb: true }));
+    setCurrent(current - 1, { scrollThumb: true }); 
   }
   function next(){ 
     console.log('next clicked, current before:', current);
-    debounceNavigation(() => setCurrent(current + 1, { scrollThumb: true }));
+    setCurrent(current + 1, { scrollThumb: true }); 
   }
 
   if(slider && $cur && thumbs){
