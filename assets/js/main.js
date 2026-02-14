@@ -135,52 +135,21 @@
     const idNext = toIdFromIndex(clampIndex(current + 1));
     console.log('ids', { idPrev, idCur, idNext });
 
-    // Preload images to avoid white flash
-    const preloadImage = (src) => {
-      return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.onload = () => resolve(img);
-        img.onerror = reject;
-        img.src = src;
-      });
-    };
-
-    // Load images with proper error handling
+    // Simple image loading without opacity manipulation
     if($prev){
-      const prevSrc = path(idPrev);
-      $prev.src = prevSrc;
+      $prev.src = path(idPrev);
       $prev.alt = `album-${idPrev}`;
       $prev.loading = "eager";
-      $prev.style.opacity = '0';
-      preloadImage(prevSrc).then(() => {
-        $prev.style.opacity = '';
-      }).catch(() => {
-        $prev.style.opacity = '0.5';
-      });
     }
     if($cur){
-      const curSrc = path(idCur);
-      $cur.src = curSrc;
+      $cur.src = path(idCur);
       $cur.alt = `album-${idCur}`;
       $cur.loading = "eager";
-      $cur.style.opacity = '0';
-      preloadImage(curSrc).then(() => {
-        $cur.style.opacity = '';
-      }).catch(() => {
-        $cur.style.opacity = '0.5';
-      });
     }
     if($next){
-      const nextSrc = path(idNext);
-      $next.src = nextSrc;
+      $next.src = path(idNext);
       $next.alt = `album-${idNext}`;
       $next.loading = "eager";
-      $next.style.opacity = '0';
-      preloadImage(nextSrc).then(() => {
-        $next.style.opacity = '';
-      }).catch(() => {
-        $next.style.opacity = '0.5';
-      });
     }
 
     if(thumbButtons.length){
@@ -196,11 +165,11 @@
 
   function prev(){ 
     console.log('prev clicked, current before:', current);
-    setCurrent(current - 1, { scrollThumb: true }); 
+    debounceNavigation(() => setCurrent(current - 1, { scrollThumb: true }));
   }
   function next(){ 
     console.log('next clicked, current before:', current);
-    setCurrent(current + 1, { scrollThumb: true }); 
+    debounceNavigation(() => setCurrent(current + 1, { scrollThumb: true }));
   }
 
   if(slider && $cur && thumbs){
