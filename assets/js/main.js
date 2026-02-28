@@ -335,6 +335,12 @@
   }
 
   function formatDate(date){
+    // Check if date is valid
+    if (!date || isNaN(date.getTime())) {
+      return new Intl.DateTimeFormat("vi-VN", {
+        hour:"2-digit", minute:"2-digit", day:"2-digit", month:"2-digit", year:"numeric"
+      }).format(new Date());
+    }
     return new Intl.DateTimeFormat("vi-VN", {
       hour:"2-digit", minute:"2-digit", day:"2-digit", month:"2-digit", year:"numeric"
     }).format(date);
@@ -348,13 +354,18 @@
       return;
     }
     if(wishesPlaceholder) wishesPlaceholder.style.display = "none";
-    wishesList.innerHTML = wishes.map(w => `
+    wishesList.innerHTML = wishes.map(w => {
+      // Ensure timestamp exists and is valid
+      const timestamp = w.timestamp || new Date().toISOString();
+      const date = new Date(timestamp);
+      return `
       <div class="wish-item">
-        <div class="wish-author">${escapeHtml(w.name)}</div>
-        <div class="wish-time">${formatDate(new Date(w.timestamp))}</div>
-        <div class="wish-text">${escapeHtml(w.message).replace(/\n/g, "<br>")}</div>
+        <div class="wish-author">${escapeHtml(w.name || 'Anonymous')}</div>
+        <div class="wish-time">${formatDate(date)}</div>
+        <div class="wish-text">${escapeHtml(w.message || '').replace(/\n/g, "<br>")}</div>
       </div>
-    `).join("");
+    `;
+    }).join("");
   }
 
   function escapeHtml(text) {
