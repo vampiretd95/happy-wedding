@@ -317,8 +317,10 @@
 
   let wishes = [];
 
-  // API base URL - change this if your server runs on different port/domain
-  const API_BASE = window.location.origin + '/api';
+  // API base URL - auto detect environment
+  const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+    ? 'http://localhost:3000/api' 
+    : window.location.origin + '/api';
 
   async function loadWishesFromServer() {
     try {
@@ -341,6 +343,7 @@
   }
 
   async function saveWishToServer(wishData) {
+    console.log('Sending wish to server:', wishData);
     try {
       const response = await fetch(`${API_BASE}/wishes`, {
         method: 'POST',
@@ -350,8 +353,11 @@
         body: JSON.stringify(wishData)
       });
       
+      console.log('Server response status:', response.status);
+      
       if (response.ok) {
         const result = await response.json();
+        console.log('Server response:', result);
         wishes.unshift(result.wish);
         // Keep only latest 50 wishes
         if (wishes.length > 50) wishes = wishes.slice(0, 50);
